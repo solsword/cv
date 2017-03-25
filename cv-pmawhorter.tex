@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+
+% Layout
+\usepackage[top=0.9in,left=0.9in,right=0.9in,bottom=0.9in]{geometry}
+\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage{hanging}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+% Typography
+\usepackage{tgpagella}
+\usepackage{microtype}
+
+% Color
+\usepackage{xcolor}
+\definecolor{linkblue}{rgb}{0, 0.3, 1.0}
+
+% Links
+\usepackage[colorlinks=true,urlcolor=linkblue]{hyperref}
+
+% Utilities
+\usepackage{xspace}
+
+% Structures
+\newenvironment{sct}[1]{%
+  \vspace{8pt}\textbf{\Large #1} \hrulefill\vspace{6pt}
+  \begin{adjustwidth}{6pt}{0pt}
+}{%
+  \end{adjustwidth}
+}
+\newenvironment{pubs}[1]{%
+  \vspace{8pt}\textbf{\Large #1} \hrulefill\vspace{6pt}
+  \begin{adjustwidth}{14pt}{0pt}
+  %\raggedright
+  \setlength{\parskip}{4pt}
+  \setlength{\parindent}{-8pt}
+}{%
+  \end{adjustwidth}
+}
+\newcommand{\work}[1]{\textit{#1}\xspace}
+\newcommand{\edu}[3]{\textbf{#1}, #2, \textit{#3.}}
+\newcommand{\experience}[6]{%
+  \textbf{#1} #2, \textit{#3.} \\
+  #4, \textit{#5} \vspace{6pt} \\
+  #6 \vspace{8pt}
+}
+\newcommand{\combexp}[4]{%
+  \textbf{#1} #2, \textit{#3.} \\
+  #4 \vspace{8pt}
+}
+\newcommand{\pub}[3]{#1. ``#2.'' \textit{#3.}}
+\newcommand{\fullpub}[5]{#1. ``#2.'' \textit{#3,} #4, #5.}
+\newcommand{\nppub}[4]{#1. ``#2.'' \textit{#3,} #4.}
+\newcommand{\heading}[1]{\textbf{\large #1}\vspace{4pt}}
+\newcommand{\tsup}[1]{\textsuperscript{#1}}
+
+\begin{document}
+
+\textbf{\huge Peter Mawhorter }\hrulefill\vspace{6pt}
+
+\begin{tabularx}{\textwidth}{X X r}
+Department of Computer Science & 234 W. 8th Street & pmawhorter@gmail.com \\
+Pomona College & Claremont, CA 91711 & 909-255-6164 \\
+\end{tabularx}
+
+\begin{sct}{Education}
+
+\edu{University of California Santa Cruz}{Ph.D. Computer Science}{March 2016}
+
+\edu{Harvey Mudd College}{B.Sc. Computer Science}{May 2008}
+
+\end{sct}
+
+\begin{sct}{Research}
+
+\experience{Researcher}{University of California Santa Cruz}{Santa Cruz, CA}%
+{Professors Mateas, Wardrip-Fruin, and Jhala}{Fall 2009--Spring 2016}{
+Worked with Ben Weber on a \work{Starcraft} AI written in the reactive planning
+language ABL. Built a level generator for \work{Infinite Mario} using an
+occupancy-based algorithm. Worked with Brandon Tearse to create \work{Skald}, a
+rational reconstruction of the \work{Minstrel} story generation system. Worked
+on brainstorming and prototyping for a climate science education game with a
+team of students, faculty, and external advisors. Collaborated closely with
+many faculty on these projects, including Michael Mateas, Noah Wardrip-Fruin,
+and Arnav Jhala. My thesis project was \work{Dunyazad}, a system that generates
+narrative choices according to a theory of choice poetics.
+}
+
+\experience{Research Assistant}{Harvey Mudd College}{Claremont, CA}%
+{Professor Dodds}{Summer 2008}{
+Implemented FastSLAM on inexpensive robot platforms using single-camera vision.
+}
+
+\experience{Researcher}{Harvey Mudd College}{Claremont, CA}%
+{Professor Stone}{Fall 2007--Spring 2008}{
+Worked with RealNetworks through the Harvey Mudd College clinic program to
+design a distributed streaming algorithm.
+}
+
+\experience{Research Assistant}{Harvey Mudd College}{Claremont, CA}%
+{Professor Erlinger}{Summer 2007}{
+Deployed a wireless sensor network for collecting microclimate temperature data.
+}
+
+\end{sct}
+
+\begin{sct}{Teaching}
+
+\experience{Visiting Professor}{Computer Science Department, Pomona College}{Claremont, CA}%
+{Dr. Tzu-Yi Chen}{Fall 2016--Spring 2017}{
+I’m currently a visiting professor in the Computer Science department at Pomona
+College. I taught CSCI 151 Artificial Intelligence and co-taught CSCI 062 Data
+Structures in the fall semester, and I am now teaching CSCI 030 Computation and
+Cognition and CSCI 062 Data Structures.
+}
+
+\experience{Teaching Assistant}{COSMOS Program, University of California Santa Cruz}{Santa Cruz, CA}%
+{Christopher Maraffi}{Summer 2014}{
+I was the teaching assistant for an intensive 4-week summer course as part of
+the COSMOS program. Exceptional high-school students learned game design and
+programming fundamentals, completing two projects over the course and learning
+about GameMaker, Processing, Blender, and Unity. I helped students with their
+projects and gave a few lectures on game design concepts.
+}
+
+\newpage
+
+\combexp{Teaching Assistant}{University of California Santa Cruz}{Santa Cruz, CA}%
+{
+CMPS 80K: Foundations of Interactive Game Design, Professor Mateas, \textit{Spring 2014} \vspace{2pt} \\
+A large general education class introducing game design concepts. Students used
+GameMaker to learn game design fundamentals and made games as their final
+projects. As part of a team of TAs and graders, I taught GameMaker in two
+weekly sections, while the lectures covered design topics. Most of the grading
+was done by undergraduate graders; I directly managed four graders and also
+helped maintain the master grade spreadsheet for the entire class.
+\vspace{6pt}
+
+CMPS 160: Introduction to Computer Graphics, Professor Davis, \textit{Fall 2013} \vspace{2pt} \\
+A core upper-division computer science class covering the basics of computer
+graphics. Students completed several well-structured graphics projects as well
+as a mid-term and a final. Professor Davis let me help extensively with
+homework and test design, and I also taught lab sections and helped students
+during office hours.
+\vspace{6pt}
+
+CMPS 179: Game Design Practicum, Professor Swanson, \textit{Spring 2013} \vspace{2pt} \\
+A small elective class on interactive data visualization. Students learned
+Javascript and WebGL, and created websites that visualized data from eBay using
+both 2D and 3D techniques. I helped manage assignment submissions and grading,
+as well as giving students detailed feedback on their final projects.\vspace{6pt}
+
+\textit{I was given my department's 2011-2012 outstanding TA of the year award.}
+\vspace{6pt}
+
+CMPS 172: Game Design Studio III, Professor Whitehead, \textit{Spring 2012} \vspace{2pt} \\
+The final quarter of the game design major’s senior capstone class. Along with
+another TA, I held weekly progress report meetings with several teams working
+to complete their game projects, giving detailed feedback and helping teams
+manage their schedules. Helped resolve internal disputes and ensure that team
+members were each doing their fair share of the work.
+\vspace{6pt}
+
+CMPS 146: Game AI, Professor Mateas, \textit{Spring 2014} \vspace{2pt} \\
+A large upper-division elective in which students learned about game AI
+techniques such as search and behavior trees. I helped design assignments and
+managed submissions and grading, and covered lecture when Professor Mateas was
+travelling.
+}
+
+\experience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 124: User Interface Design, Professor Alvarado}{Spring 2009}{
+Worked as a grader/tutor for a course on user interface design, giving students
+detailed feedback on written assignments and helping them with UI design
+projects.
+}
+
+\experience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 5: Introduction to Computer Science, Professors Dodds and Libeskind-Hadas}{Fall 2006}{
+Worked as a grader/tutor for the first offering of the new introductory CS
+course that I had helped design over the summer (see below).
+}
+
+\experience{Course Design Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 5: Introduction to Computer Science, Professors Dodds and Libeskind-Hadas}{Summer 2006}{
+Helped design a new introductory CS course that taught Python and helped build
+a website to host course information, assignments, and student submissions.
+Also worked on a simple assembly language emulator for use in student
+assignments.
+}
+
+\end{sct}
+
+\newpage
+
+\begin{pubs}{Publications}
+
+\hspace{-8pt}\heading{Dissertation}
+
+\pub{Peter Mawhorter}{Artificial Intelligence as a Tool for Understanding Narrative Choices}{\hfill\break\url{http://escholarship.org/uc/item/0tn22145}}
+
+\vspace{6pt}
+\heading{Journal and Conference Papers}
+
+\fullpub{Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Generating Relaxed, Obvious, and Dilemma Choices with Dunyazad}{Proceedings of the 11\tsup{th} Annual AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment}{pp. 58--64}{2015}
+
+\fullpub{Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Intentionally Generating Choices in Interactive Narratives}{Proceedings of the Sixth International Conference on Computational Creativity}{pp. 292--299}{2015}
+
+\nppub{Peter Mawhorter, Michael Mateas, Noah Wardrip-Fruin, and Arnav Jhala}{Towards a Theory of Choice Poetics}{Proceedings of the 2014 Foundations of Digital Games Conference}{2014}
+
+\fullpub{Brandon Tearse, Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Skald: Minstrel Reconstructed}{IEEE Transactions on Computational Intelligence and Artificial Intelligence in Games}{6(2) pp. 1--10}{2014}
+
+\fullpub{Brandon Tearse, Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Lessons Learned From a Rational Reconstruction of Minstrel}{Proceedings of the 26\tsup{th} AAAI Conference on Artificial Intelligence}{pp. 249--255}{2012}
+
+\fullpub{Brandon Tearse, Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Experimental Results from a Rational Reconstruction of Minstrel}{Proceedings of the Second International Conference on Computational Creativity}{pp. 54--59}{2011}
+
+\fullpub{Shaker et al.}{The 2010 Mario AI Championship: Level Generation Track}{IEEE Transactions on Computational Intelligence and AI in Games}{3(4):332--347}{2011}
+
+\fullpub{Peter Mawhorter and Michael Mateas}{Procedural Level Generation Using Occupancy-Regulated Extension}{Proceedings of the 2010 IEEE Symposium on Computational Intelligence and Games}{pp. 351--358}{2010}
+
+\fullpub{Ben Weber, Peter Mawhorter, Michael Mateas, and Arnav Jhala}{Reactive Planning Idioms for Multi-Scale Game AI}{Proceedings of the 2010 IEEE Symposium on Computational Intelligence and Games}{pp. 115--122}{2010}
+
+\fullpub{Peter Mawhorter, Elaine Shaver, Zeke Koziol, and Zachary Dodds}{A Tale of Two Platforms: Low-Cost Robotics in the CS Curriculum}{Journal of Computing Sciences in Colleges}{24(4):180--188}{2009}
+
+\vspace{6pt}
+\heading{Demos}
+
+\nppub{Brandon Tearse, Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Minstrel Remixed: User Interface and Demonstration}{The 7\tsup{th} Annual AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment}{2011}
+
+\nppub{Peter Mawhorter, Elaine Shaver, Zeke Koziol, and Zachary Dodds}{Mapping for All}{Proceedings of the 2008 AAAI Robot Exhibition and Workshop}{2008}
+
+\end{pubs}
+
+\end{document}
