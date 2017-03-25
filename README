@@ -1,0 +1,5 @@
+My CV source code. Compile with:
+
+xelatex cv-pmawhorter.tex
+
+Feel free to use as a template if you like the look :)
