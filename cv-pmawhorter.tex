@@ -5,11 +5,15 @@
 \usepackage{tabularx}
 \usepackage{changepage}
 \usepackage{hanging}
+\usepackage{calc}
 \setlength{\parindent}{0pt}
 \pagestyle{empty}
+\usepackage{setspace} \setstretch{1.0}
 
 % Typography
-\usepackage{tgpagella}
+%\usepackage{tgpagella}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
 \usepackage{microtype}
 
 % Color
@@ -23,8 +27,10 @@
 \usepackage{xspace}
 
 % Structures
+\setlength{\parskip}{0pt plus 2pt minus 2pt}
+
 \newenvironment{sct}[1]{%
-  \vspace{8pt}\textbf{\Large #1} \hrulefill\vspace{6pt}
+  \vspace{8pt plus 2pt minus 4pt}\textbf{\Large #1} \hrulefill\vspace{6pt}
   \begin{adjustwidth}{6pt}{0pt}
 }{%
   \end{adjustwidth}
@@ -40,19 +46,53 @@
 }
 \newcommand{\work}[1]{\textit{#1}\xspace}
 \newcommand{\edu}[3]{\textbf{#1}, #2, \textit{#3.}}
+\newcommand{\indented}[1]{\hspace*{\fill}\parbox{\textwidth-22pt}{#1}}
 \newcommand{\experience}[6]{%
   \textbf{#1} #2, \textit{#3.} \\
-  #4, \textit{#5} \vspace{6pt} \\
-  #6 \vspace{8pt}
+  #4, \textit{#5} \\
+  \indented{#6}
+  \vspace{7pt plus 2pt minus 2pt}
+}
+\newcommand{\teachingexperience}[7]{%
+  \textbf{#1} #2, \textit{#3.} \\
+  \textit{#4}, #5, \textit{#6} \\
+  \indented{#7}
+  \vspace{7pt plus 2pt minus 2pt}
 }
 \newcommand{\combexp}[4]{%
   \textbf{#1} #2, \textit{#3.} \\
-  #4 \vspace{8pt}
+  #4 \vspace{7pt plus 2pt minus 2pt}
 }
-\newcommand{\pub}[3]{#1. ``#2.'' \textit{#3.}}
-\newcommand{\fullpub}[5]{#1. ``#2.'' \textit{#3,} #4, #5.}
-\newcommand{\nppub}[4]{#1. ``#2.'' \textit{#3,} #4.}
+\newcommand{\pub}[3]{%
+\begin{samepage}
+#1. ``#2.'' \textit{#3.}
+
+\end{samepage}%
+}
+
+\newcommand{\plainpub}[4]{%
+\begin{samepage}
+#1. ``#2.'' #3, #4.
+
+\end{samepage}%
+}
+
+\newcommand{\fullpub}[5]{%
+\begin{samepage}
+#1. ``#2.'' \textit{#3,} #4, #5.
+
+\end{samepage}%
+}
+
+\newcommand{\nppub}[4]{%
+\begin{samepage}
+#1. ``#2.'' \textit{#3,} #4.
+
+\end{samepage}%
+}
+
 \newcommand{\heading}[1]{\textbf{\large #1}\vspace{4pt}}
+
 \newcommand{\tsup}[1]{\textsuperscript{#1}}
 
 \begin{document}
@@ -73,6 +113,21 @@ Wellesley College & Shrewsbury, MA 01545 & 909-255-6164 \\
 \end{sct}
 
 \begin{sct}{Research}
+
+\experience{Postdoctoral Scholar}{Massachusetts Institute of Technology}{Cambridge, MA}%
+{Professor Harrell}{Summer 2017--Summer 2018}{
+  Worked with Dr. Harrell on a project funded through the Qatar Computing
+  Research Institute, which is aimed at discovering region-specific design
+  principles for virtual identity systems (e.g., Facebook profiles or in-game
+  avatars) and testing those principles through the development and deployment
+  of prototype apps within the region. As part of this project I have applied
+  deep learning techniques to sort avatar images according to novelty and to
+  identify region-specific appearance trends, and completed a survey designed
+  to study perceptions of enfreakment in fighting game characters. During this
+  time I also expanded my dissertation work on choice poetics with an in-depth
+  analysis of specific choices in the games \work{Undertale} and \work{Papers,
+  Please}.
+}
 
 \experience{Researcher}{University of California Santa Cruz}{Santa Cruz, CA}%
 {Professors Mateas, Wardrip-Fruin, and Jhala}{Fall 2009--Spring 2016}{
@@ -107,101 +162,120 @@ Deployed a wireless sensor network for collecting microclimate temperature data.
 
 \begin{sct}{Teaching}
 
-\experience{Visiting Professor}{Computer Science Department, Pomona College}{Claremont, CA}%
-{Dr. Tzu-Yi Chen}{Fall 2016--Spring 2017}{
-I’m currently a visiting professor in the Computer Science department at Pomona
-College. I taught CSCI 151 Artificial Intelligence and co-taught CSCI 062 Data
-Structures in the fall semester, and I am now teaching CSCI 030 Computation and
-Cognition and CSCI 062 Data Structures.
-}
+\teachingexperience{Lab Instructor}{Wellesley College}{Wellesley, MA}%
+{Computer Science Department}{Professor Tjaden}{Fall 2018--present}%
+{I am currently a lab instructor in the Computer Science department at
+Wellesley College. In my first semester I am teaching labs for CS111 Computer
+Programming and Problem Solving and CS115/MA115 Computing for the
+Socio-Technical Web.}
 
-\experience{Teaching Assistant}{COSMOS Program, University of California Santa Cruz}{Santa Cruz, CA}%
-{Christopher Maraffi}{Summer 2014}{
-I was the teaching assistant for an intensive 4-week summer course as part of
+\teachingexperience{Visiting Professor}{Pomona College}{Claremont, CA}%
+{Computer Science Department}{Professor Chen}{Fall 2016--Spring 2017}%
+{I was a visiting professor in the Computer Science department at Pomona
+College. I taught CSCI 151 Artificial Intelligence and co-taught CSCI 062 Data
+Structures in the fall semester, and then CSCI 030 Computation and Cognition
+and CSCI 062 Data Structures in the spring semester.}
+
+\teachingexperience{Teaching Assistant}{University of California Santa Cruz}{Santa Cruz, CA}%
+{COSMOS Program}{Christopher Maraffi}{Summer 2014}
+{I was the teaching assistant for an intensive 4-week summer course as part of
 the COSMOS program. Exceptional high-school students learned game design and
 programming fundamentals, completing two projects over the course and learning
 about GameMaker, Processing, Blender, and Unity. I helped students with their
-projects and gave a few lectures on game design concepts.
-}
-
-\newpage
+projects and gave a few lectures on game design concepts.}
 
 \combexp{Teaching Assistant}{University of California Santa Cruz}{Santa Cruz, CA}%
 {
-CMPS 80K: Foundations of Interactive Game Design, Professor Mateas, \textit{Spring 2014} \vspace{2pt} \\
+\textit{CMPS 80K: Foundations of Interactive Game Design}, Professor Mateas, \textit{Spring 2014} \\
+\indented{
 A large general education class introducing game design concepts. Students used
 GameMaker to learn game design fundamentals and made games as their final
 projects. As part of a team of TAs and graders, I taught GameMaker in two
 weekly sections, while the lectures covered design topics. Most of the grading
 was done by undergraduate graders; I directly managed four graders and also
 helped maintain the master grade spreadsheet for the entire class.
+}
 \vspace{6pt}
 
-CMPS 160: Introduction to Computer Graphics, Professor Davis, \textit{Fall 2013} \vspace{2pt} \\
+\textit{CMPS 160: Introduction to Computer Graphics}, Professor Davis, \textit{Fall 2013} \\
+\indented{
 A core upper-division computer science class covering the basics of computer
 graphics. Students completed several well-structured graphics projects as well
 as a mid-term and a final. Professor Davis let me help extensively with
 homework and test design, and I also taught lab sections and helped students
 during office hours.
+}
 \vspace{6pt}
 
-CMPS 179: Game Design Practicum, Professor Swanson, \textit{Spring 2013} \vspace{2pt} \\
+\textit{CMPS 179: Game Design Practicum}, Professor Swanson, \textit{Spring 2013} \\
+\indented{
 A small elective class on interactive data visualization. Students learned
 Javascript and WebGL, and created websites that visualized data from eBay using
 both 2D and 3D techniques. I helped manage assignment submissions and grading,
-as well as giving students detailed feedback on their final projects.\vspace{6pt}
+as well as giving students detailed feedback on their final projects.
+}
+\vspace{6pt}
 
 \textit{I was given my department's 2011-2012 outstanding TA of the year award.}
 \vspace{6pt}
 
-CMPS 172: Game Design Studio III, Professor Whitehead, \textit{Spring 2012} \vspace{2pt} \\
-The final quarter of the game design major’s senior capstone class. Along with
+\textit{CMPS 172: Game Design Studio III}, Professor Whitehead, \textit{Spring 2012} \\
+\indented{
+The final quarter of the game design major's senior capstone class. Along with
 another TA, I held weekly progress report meetings with several teams working
 to complete their game projects, giving detailed feedback and helping teams
 manage their schedules. Helped resolve internal disputes and ensure that team
 members were each doing their fair share of the work.
+}
 \vspace{6pt}
 
-CMPS 146: Game AI, Professor Mateas, \textit{Spring 2014} \vspace{2pt} \\
+\textit{CMPS 146: Game AI}, Professor Mateas, \textit{Spring 2014} \\
+\indented{
 A large upper-division elective in which students learned about game AI
 techniques such as search and behavior trees. I helped design assignments and
 managed submissions and grading, and covered lecture when Professor Mateas was
 travelling.
 }
+% end of combexp
+}
 
-\experience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
-{CS 124: User Interface Design, Professor Alvarado}{Spring 2009}{
-Worked as a grader/tutor for a course on user interface design, giving students
+\teachingexperience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 124: User Interface Design}{, Professor Alvarado}{Spring 2009}%
+{Worked as a grader/tutor for a course on user interface design, giving students
 detailed feedback on written assignments and helping them with UI design
-projects.
-}
+projects.}
 
-\experience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
-{CS 5: Introduction to Computer Science, Professors Dodds and Libeskind-Hadas}{Fall 2006}{
-Worked as a grader/tutor for the first offering of the new introductory CS
-course that I had helped design over the summer (see below).
-}
+\teachingexperience{Teaching Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 5: Introduction to Computer Science}{Professors Dodds and Libeskind-Hadas}{Fall 2006}%
+{Worked as a grader/tutor for the first offering of the new introductory CS
+course that I had helped design over the summer (see below).}
 
-\experience{Course Design Assistant}{Harvey Mudd College}{Claremont, CA}%
-{CS 5: Introduction to Computer Science, Professors Dodds and Libeskind-Hadas}{Summer 2006}{
-Helped design a new introductory CS course that taught Python and helped build
+\teachingexperience{Course Design Assistant}{Harvey Mudd College}{Claremont, CA}%
+{CS 5: Introduction to Computer Science}{Professors Dodds and Libeskind-Hadas}{Summer 2006}%
+{Helped design a new introductory CS course that taught Python and helped build
 a website to host course information, assignments, and student submissions.
 Also worked on a simple assembly language emulator for use in student
-assignments.
-}
+assignments.}
 
 \end{sct}
-
-\newpage
 
 \begin{pubs}{Publications}
 
 \hspace{-8pt}\heading{Dissertation}
 
-\pub{Peter Mawhorter}{Artificial Intelligence as a Tool for Understanding Narrative Choices}{\hfill\break\url{http://escholarship.org/uc/item/0tn22145}}
+\plainpub{Peter Mawhorter}{Artificial Intelligence as a Tool for Understanding Narrative Choices}{\hfill\break Available: \url{http://escholarship.org/uc/item/0tn22145}}{2016}
+
+\vspace{6pt}
+\heading{In Progress}
+
+\nppub{Sercan \c{S}eng\"un, James Bowie-Wilson, Peter Mawhorter, Yusef Audeh, Haewoon Kwak, and D. Fox Harrell}{Contours of Virtual Enfreakment in Fighting Game Characters: A Case Study of Street Fighter and Tekken}{Preparing for submission to Games and Culture}{2018}
+
+\nppub{Peter Mawhorter, Carmen Zegura, Alex Gray, Arnav Jhala, Michael Mateas, and Noah Wardrip-Fruin}{Choice Poetics by Example}{Accepted to the MDPI Arts special issue on Gaming and the Arts of Storytelling}{2018}
 
 \vspace{6pt}
 \heading{Journal and Conference Papers}
+
+  \fullpub{Peter Mawhorter, Sercan \c{S}eng\"un, Haewoon Kwak, and D. Fox Harrell}{Identifying Regional Trends in Avatar Customization}{IEEE Transactions on Games}{in press}{2018}
 
 \fullpub{Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Generating Relaxed, Obvious, and Dilemma Choices with Dunyazad}{Proceedings of the 11\tsup{th} Annual AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment}{pp. 58--64}{2015}
 
@@ -224,7 +298,15 @@ assignments.
 \fullpub{Peter Mawhorter, Elaine Shaver, Zeke Koziol, and Zachary Dodds}{A Tale of Two Platforms: Low-Cost Robotics in the CS Curriculum}{Journal of Computing Sciences in Colleges}{24(4):180--188}{2009}
 
 \vspace{6pt}
-\heading{Demos}
+\heading{Demos and Workshop Papers}
+
+\nppub{Peter Mawhorter and Arnav Jhala}{Choice Poetics: A Formal Approach to Narrative Choices}{Accepted for the Gaming and the Arts of Storytelling Symposium}{2018}
+
+\nppub{Ali Jahanian, Sercan Şengün, Peter Mawhorter, Haewoon Kwak, and D. Fox Harrell}{Grounding AI-Driven Cross-Cultural Analysis with Community Insights}{Accepted for the Exploring Participatory Design Methods to Engage with Arab Communities Workshop at CHI 2018}{2018}
+
+\nppub{Aritro Biswas, Peter Mawhorter, Ferda Ofli, Javier Marin, Ingmar Weber, and Antonio Torralba}{Human-Recipe Interaction via Learned Semantic Embeddings}{Accepted for the Designing Recipes for Digital Food Futures Workshop at CHI 2018}{2018}
+
+\fullpub{Peter Mawhorter}{Efficiency, Realism, and Representation in Generated Content}{Proceedings of the 12\tsup{th} International Conference on the Foundations of Digital Games}{pp. 72:1--72:4}{2017}
 
 \nppub{Brandon Tearse, Peter Mawhorter, Michael Mateas, and Noah Wardrip-Fruin}{Minstrel Remixed: User Interface and Demonstration}{The 7\tsup{th} Annual AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment}{2011}
 
